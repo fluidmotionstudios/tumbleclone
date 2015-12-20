@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1><%= @post.title %></h1>
+</div>
+
+<%= render @post %>
+
+<h3>Comments<h3>
+<%= render @post.comments.order("created_at DESC") %>
+<h4>New Comment</h4>
+  <%= simple_form_for @post.comments.build do |f| %>
+    <div class="form-inputs">
+      <%= f.input :body, class: "form-control" %>
+    </div>
+    <%= f.hidden_field :post_id %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+<br/>
+<%= link_to "Home", posts_path, class: "btn btn-default" %>

@@ -1,0 +1,31 @@
+@import "bootstrap";
+@import "bootstrap-theme";
+
+@mixin box-shadow {
+ 	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+ 	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+ 	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+ }
+
+body {
+  padding-top: 80px;
+  font-family: Lato, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Raleway, sans-serif;
+    font-weight: 300;
+    color: #333;
+ 		margin: 0;
+}
+
+.panel {
+  @include box-shadow;
+}
+
+
+.field_with_errors { @extend .has-error; }
+.alert-notice { @extend .alert-info; }
+.alert-alert { @extend .alert-danger; }

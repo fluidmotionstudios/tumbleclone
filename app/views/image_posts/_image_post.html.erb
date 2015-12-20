@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= image_post.title %>
+    </h3>
+  </div>
+
+  <div class="panel-body">
+    <%= link_to time_ago_in_words(image_post.created_at), post_path(image_post) %>
+    <p><em>By <%= image_post.user.name %></em></p>
+
+    <%= image_tag image_post.url, class: "img-responsive" %>
+
+    <%= image_post.body %>
+<br/>
+<br/>
+    <% if image_post.user == current_user %>
+      <p><%= link_to 'Edit', edit_image_post_path(image_post), class: "btn btn-default" %></p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<p><%=time_ago_in_words(comment.created_at) %> ago <%= comment.user.name %> said: </p>
+  <blockquote>
+    <%= comment.body %>
+
+  <% if @can_moderate %>
+    <p><%= link_to 'Destroy', comment_path(comment), method: :delete, data: {confirm: "Are you sure you want to delete this comment?" }, class: "btn btn-default" %></p>
+  <% end %>
+  </blockquote>
